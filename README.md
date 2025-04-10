@@ -26,7 +26,7 @@
 |Column                            |Type          |Options                   |
 |----------------------------------|--------------|--------------------------|
 |name                              |string        |null: false               |
-|user_id                           |string        |null: false               |
+|user                              |references    |null: false               |
 |description                       |text          |null: false               |
 |category_id                       |integer       |null: false               |
 |condition_id                      |integer       |null: false               |
