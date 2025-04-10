@@ -59,7 +59,7 @@
 
 |Column                    |Type            |Options                       |
 |--------------------------|----------------|------------------------------|
-|purchase                  |string          |null: false foreign_key: true |
+|purchase                  |references      |null: false foreign_key: true |
 |post_code                 |string          |null: false                   |
 |prefecture_id             |integer         |null: false                   |
 |municipality              |string          |null: false                   |
@@ -68,7 +68,7 @@
 |phone_number              |string          |null: false                   |
 
 ### Association
-* belongs_to :address
+* belongs_to :purchase
 
 
 
