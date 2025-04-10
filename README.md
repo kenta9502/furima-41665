@@ -25,51 +25,49 @@
 
 |Column                            |Type          |Options                   |
 |----------------------------------|--------------|--------------------------|
-|name                              |string        |null: false               |
+|name_user_id                      |string        |null: false               |
 |description                       |text          |null: false               |
 |category_id                       |integer       |null: false               |
 |product_condition_id              |integer       |null: false               |
 |shipping_cost_id                  |integer       |null: false               |
-|region of origin_id               |integer       |null: false               |
+|prefectures_id                    |integer       |null: false               |
 |estimated_shipping_date_id        |integer       |null: false               |
-|price                             |text          |null: false               |
+|price                             |integer       |null: false               |
 
 
 
 
 ### Association
-* belong_to :user
+* belongs_to :user
 * has_one :purchase
 
 ## purchases table
 
-|Column                           |Type          |Options                   |
-|---------------------------------|--------------|--------------------------|
-|user_id                          |string        |null: false               |
-|product_id                       |string        |null: false               |
+|Column                           |Type          |Options                       |
+|---------------------------------|--------------|------------------------------|
+|user                             |references    |null: false foreign_key: true |
+|product                          |references    |null: false foreign_key: true |
 
 
 ### Association
-* belong_to :product
-* belong_to :user
+* belongs_to :product
+* belongs_to :user
 * has_one :address
 
 ## addresses table
 
-|Column                    |Type            |Options                   |
-|--------------------------|----------------|--------------------------|
-|purchase_id               |string          |null: false               |
-|post_code                 |string          |null: false               |
-|prefectures_id            |integer         |null: false               |
-|municipalities            |string          |null: false               |
-|street_address            |string          |null: false               |
-|building_name             |string          |                          |
-|phone_number              |string          |null: false               |
+|Column                    |Type            |Options                       |
+|--------------------------|----------------|------------------------------|
+|purchase                  |string          |null: false foreign_key: true |
+|post_code                 |string          |null: false                   |
+|prefectures_id            |integer         |null: false                   |
+|municipality              |string          |null: false                   |
+|street_address            |string          |null: false                   |
+|building_name             |string          |                              |
+|phone_number              |string          |null: false                   |
 
 ### Association
-* belong_to :product
-* belong_to :user
-* belong_to :address
+* belongs_to :address
 
 
 
