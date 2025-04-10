@@ -8,26 +8,33 @@
 |nickname            |string        |null: false               |
 |email               |string        |null: false, unique: true |
 |encrypted_password  |string        |null: false               |
-|name                |string        |null: false               |
-|birthday            |string        |null: false               |
+|first_name          |string        |null: false               |
+|last_name           |string        |null: false               |
+|first_name_kana     |string        |null: false               |
+|last_name_kana      |string        |null: false               |
+|date                |string        |null: false               |
 
 
 
 ### Association
 
-* has_many :product
-* has_many :purchase
+* has_many :products
+* has_many :purchases
 
 ## products table
 
-|Column                    |Type          |Options                   |
-|--------------------------|--------------|--------------------------|
-|image                     |string        |null: false               |
-|name                      |text          |null: false               |
-|description               |text          |null: false               |
-|categories                |string        |null: false               |
-|Product condition         |string        |null: false               |
-|Shipping costs            |string        |null: false               |
+|Column                            |Type          |Options                   |
+|----------------------------------|--------------|--------------------------|
+|name                              |string        |null: false               |
+|description                       |text          |null: false               |
+|category_id                       |integer       |null: false               |
+|product_condition_id              |integer       |null: false               |
+|shipping_cost_id                  |integer       |null: false               |
+|region of origin_id               |integer       |null: false               |
+|estimated_shipping_date_id        |integer       |null: false               |
+|price                             |text          |null: false               |
+
+
 
 
 ### Association
@@ -36,31 +43,28 @@
 
 ## purchases table
 
-|Column                    |Type          |Options                   |
-|--------------------------|--------------|--------------------------|
-|Producer                  |string        |null: false               |
-|Categories                |string        |null: false               |
-|Product condition         |string        |null: false               |
-|Shipping costs            |string        |null: false               |
-|Region of origin          |string        |null: false               |
-|Estimated shipping date   |string        |null: false               |
+|Column                           |Type          |Options                   |
+|---------------------------------|--------------|--------------------------|
+|user_id                          |string        |null: false               |
+|product_id                       |string        |null: false               |
 
 
 ### Association
 * belong_to :product
 * belong_to :user
-* has_many :address
+* has_one :address
 
 ## addresses table
 
-|Column                    |Type          |Options                   |
-|--------------------------|--------------|--------------------------|
-|post code                 |text          |null: false               |
-|prefectures               |string        |null: false               |
-|municipalities            |text          |null: false               |
-|street address            |text          |null: false               |
-|Building Name             |text          |null: false               |
-|phone number              |text          |null: false               |
+|Column                    |Type            |Options                   |
+|--------------------------|----------------|--------------------------|
+|purchase_id               |string          |null: false               |
+|post_code                 |string          |null: false               |
+|prefectures_id            |integer         |null: false               |
+|municipalities            |string          |null: false               |
+|street_address            |string          |null: false               |
+|building_name             |string          |                          |
+|phone_number              |string          |null: false               |
 
 ### Association
 * belong_to :product
