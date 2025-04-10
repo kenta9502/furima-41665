@@ -12,7 +12,7 @@
 |last_name           |string        |null: false               |
 |first_name_kana     |string        |null: false               |
 |last_name_kana      |string        |null: false               |
-|date                |string        |null: false               |
+|birthday            |date          |null: false               |
 
 
 
@@ -28,10 +28,10 @@
 |name_user_id                      |string        |null: false               |
 |description                       |text          |null: false               |
 |category_id                       |integer       |null: false               |
-|product_condition_id              |integer       |null: false               |
+|condition_id                      |integer       |null: false               |
 |shipping_cost_id                  |integer       |null: false               |
-|prefectures_id                    |integer       |null: false               |
-|estimated_shipping_date_id        |integer       |null: false               |
+|prefecture_id                     |integer       |null: false               |
+|shipping_date_id                  |integer       |null: false               |
 |price                             |integer       |null: false               |
 
 
@@ -60,7 +60,7 @@
 |--------------------------|----------------|------------------------------|
 |purchase                  |string          |null: false foreign_key: true |
 |post_code                 |string          |null: false                   |
-|prefectures_id            |integer         |null: false                   |
+|prefecture_id             |integer         |null: false                   |
 |municipality              |string          |null: false                   |
 |street_address            |string          |null: false                   |
 |building_name             |string          |                              |
