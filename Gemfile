@@ -69,6 +69,7 @@ end
 
 group :development do
   gem 'rubocop', '1.71.2', require: false
+  gem 'rspec-rails', '~> 4.0.0'
 end
 
 group :production do
@@ -76,3 +77,6 @@ group :production do
 end
 
 gem 'active_hash'
+
+gem 'devise'
+
