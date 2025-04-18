@@ -135,9 +135,9 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include('First name kana はカタカナのみ利用可能です')
       end
       it '生年月日が空だと登録できない' do
-        @user.birthday = nil
+        @user.birth_date = nil
         expect(@user).not_to be_valid
-        expect(@user.errors.full_messages).to include('Birthdayが入力されていません。')
+        expect(@user.errors.full_messages).to include('Birth dateが入力されていません。')
       end
     end
   end
