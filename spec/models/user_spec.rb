@@ -48,5 +48,27 @@ RSpec.describe User, type: :model do
       expect(user_with_same_email).not_to be_valid
       expect(user_with_same_email.errors.full_messages).to include('Email has already been taken')
     end
+    it '姓名が空では登録できない' do
+      @user.first_name = nil
+      expect(@user).not_to be_valid
+      expect(@user.errors.full_messages).to include("First name can't be blank")
+    end
+
+    it '名前が空では登録できない' do
+      @user.last_name = nil
+      expect(@user).not_to be_valid
+      expect(@user.errors.full_messages).to include("Last name can't be blank")
+    end
+    it '姓名（カナ）が空では登録できない' do
+      @user.first_name_kana = nil
+      expect(@user).not_to be_valid
+      expect(@user.errors.full_messages).to include("First name kana can't be blank")
+    end
+
+    it '名前（カナ）が空では登録できない' do
+      @user.last_name_kana = nil
+      expect(@user).not_to be_valid
+      expect(@user.errors.full_messages).to include("Last name kana can't be blank")
+    end
   end
 end
