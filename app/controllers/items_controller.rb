@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    # ここにアクションの内容を記述
+    @user = current_user
   end
 
   def new
@@ -16,9 +16,11 @@ class ItemsController < ApplicationController
     end
   end
 
-  private
+  def destroy
+    private
 
-  def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    def user_params
+      params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    end
   end
 end
