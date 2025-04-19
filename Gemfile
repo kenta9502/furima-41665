@@ -67,8 +67,11 @@ group :test do
   gem "selenium-webdriver"
 end
 
-group :development do
+group :development, :test do
   gem 'rubocop', '1.71.2', require: false
+  gem 'rspec-rails', '~> 4.0.0'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :production do
@@ -76,3 +79,7 @@ group :production do
 end
 
 gem 'active_hash'
+
+gem 'devise'
+
+
