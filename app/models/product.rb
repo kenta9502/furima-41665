@@ -8,7 +8,7 @@ class Product < ApplicationRecord
   belongs_to :shipping_date
   has_one_attached :image
 
-  validates :image, :name, :description, presence: true
+  validates :user, :image, :name, :description, presence: true
   validates :category_id, :condition_id, :prefecture_id, :shipping_cost_id, :shipping_date_id,
             numericality: { other_than: 1, message: 'must be selected' }
   validates :price, presence: true
