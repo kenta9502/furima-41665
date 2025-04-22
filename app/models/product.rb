@@ -8,9 +8,9 @@ class Product < ApplicationRecord
   belongs_to :shipping_date
   has_one_attached :image
 
-  validates :user, :image, :name, :description, presence: true
+  validates :image, :name, :description, presence: true
   validates :category_id, :condition_id, :prefecture_id, :shipping_cost_id, :shipping_date_id,
             numericality: { other_than: 1, message: 'must be selected' }
   validates :price, presence: true
-  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, only_integer: true }
 end
