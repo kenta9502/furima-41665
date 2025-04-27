@@ -28,7 +28,7 @@
       <%# if @product.product.blank? %> <%# 商品が売れていない場合に出品者本人には編集・削除ボタンを表示 %>
     <%= link_to "商品の編集", edit_item_path(@product.id), method: :get, class: "item-red-btn" %>
     <p class="or-text">or</p>
-    <%= link_to "削除", '#', data: {turbo_method: :delete}, class:"item-destroy" %>
+    <%= link_to "削除", item_path(@product.id), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }, class:"item-destroy" %>
   <% else %> <%# 出品者本人ではない場合 %>
     <%# unless @product.purchase.present? %> <%# 商品が売れていない場合に購入ボタンを表示 %>
     <%= link_to "購入画面に進む", '#' ,class:"item-red-btn"%>
