@@ -21,12 +21,14 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @product = Product.includes(:user).find(params[:id])
+  end
+
+  def edit
   end
 
   def update
     if @product.update(product_params)
-      redirect_to product_path(@product), notice: '商品情報を更新しました。'
+      redirect_to item_path(@product), notice: '商品情報を更新しました。'
     else
       render :edit, status: :unprocessable_entity
     end
