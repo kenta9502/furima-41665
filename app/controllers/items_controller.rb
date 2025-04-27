@@ -24,10 +24,6 @@ class ItemsController < ApplicationController
     @product = Product.includes(:user).find(params[:id])
   end
 
-  def edit
-    @product = Product.find(params[:id])
-  end
-
   def update
     if @product.update(product_params)
       redirect_to product_path(@product), notice: '商品情報を更新しました。'
