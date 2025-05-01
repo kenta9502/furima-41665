@@ -1,8 +1,11 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :ensure_correct_user_for_edit, only: [:edit, :update]
-  before_action :ensure_correct_user_for_destroy, only: [:destroy]
+  before_action :ensure_seller, only: [:edit, :update, :destroy]
+  before_action :prevent_sold_item_access, only: [:edit, :update, :destroy]
+  # before_action :set_product, only: [:show, :edit, :update, :destroy]
+  # before_action :ensure_correct_user_for_edit, only: [:edit, :update]
+  # before_action :ensure_correct_user_for_destroy, only: [:destroy]
 
   def index
     @products = Product.order(created_at: :desc)
@@ -64,5 +67,21 @@ class ItemsController < ApplicationController
     return if @product.user_id == current_user.id
 
     redirect_to root_path, alert: '出品者以外のユーザーは削除できません。'
+  end
+
+  def set_item
+    @product = Product.find(params[:id])
+  end
+
+  def ensure_seller
+    return if @product.user_id == current_user.id
+
+    redirect_to root_path, alert: '権限がありません' # Or a more specific message
+  end
+
+  def prevent_sold_item_access
+    return unless @product.purchase.present?
+
+    redirect_to root_path, alert: '商品は売却済みです' # Or a more specific message
   end
 end

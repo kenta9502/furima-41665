@@ -6,6 +6,7 @@ class Product < ApplicationRecord
   belongs_to :prefecture
   belongs_to :shipping_cost
   belongs_to :shipping_date
+  has_one :purchase
   has_one_attached :image
 
   validates :image, :name, :description, presence: true
