@@ -14,4 +14,5 @@ class User < ApplicationRecord
   validates :birthday, presence: true
 
   has_many :products
+  belongs_to :purchase
 end
