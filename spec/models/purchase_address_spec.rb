@@ -4,7 +4,7 @@ RSpec.describe PurchaseAddress, type: :model do
   before do
     product = FactoryBot.create(:product)
     user = FactoryBot.create(:user)
-    @purchase_address = FactoryBot.build(:purchase_address, product_id: product.id, user_id: user.id, token: 'tok_abcdefg')
+    @purchase_address = FactoryBot.build(:purchase_address, product_id: product.id, user_id: user.id)
   end
 
   describe '商品の購入' do
