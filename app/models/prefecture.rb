@@ -24,7 +24,7 @@ class Prefecture < ActiveHash::Base
     { id: 22, name: '岐阜県' },
     { id: 23, name: '静岡県' },
     { id: 24, name: '愛知県' },
-    { id: 25, name: '-三重県' },
+    { id: 25, name: '三重県' },
     { id: 26, name: '滋賀県' },
     { id: 27, name: '京都府' },
     { id: 28, name: '大阪府' },
